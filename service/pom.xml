@@ -23,20 +23,14 @@
   </dependencies>
    <build>
 		<finalName>service</finalName>
-		 <resources>
-        <resource>
-            <directory>src/main/webapp</directory>
-            <includes>
-                <include>**/*.jsp</include>
-                <include>**/*.xml</include>
-            </includes>
-        </resource>
-    </resources>
 		<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-war-plugin</artifactId>
 			<version>3.3.2</version>
+		<configuration>
+		    <warsourceDirectory>src/main/webapp</warsourceDirectory>
+		</configuration>
 		</plugin>
 		</plugins>
 	</build>
