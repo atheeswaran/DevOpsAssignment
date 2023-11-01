@@ -24,10 +24,8 @@
    <build>
 		<finalName>service</finalName>
 		<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-war-plugin</artifactId>
-	 <configuration>
+		 <plugin>
+	        <configuration>
                 <webResources>
                     <resource>
                         <!-- this is relative to the pom.xml directory -->
@@ -35,7 +33,7 @@
                     </resource>
                 </webResources>
             </configuration>
-		</plugin>
+		  </plugin>
 		</plugins>
 	</build>
 
