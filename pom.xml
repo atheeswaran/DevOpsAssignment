@@ -5,7 +5,7 @@
   <artifactId>service</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>service Maven Webapp</name>
+  <name>service</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
