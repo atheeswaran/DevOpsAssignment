@@ -31,7 +31,7 @@
                 <webResources>
                     <resource>
                         <!-- this is relative to the pom.xml directory -->
-                        <directory>src/main/webapp</directory>
+                        <directory>service\src\main\webapp</directory>
                     </resource>
                 </webResources>
             </configuration>
