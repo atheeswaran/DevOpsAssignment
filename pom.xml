@@ -22,7 +22,7 @@
     </dependency>    
   </dependencies>
    <build>
-		<finalName>javawebapp</finalName>
+		<finalName>service</finalName>
 		<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
