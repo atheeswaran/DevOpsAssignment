@@ -23,6 +23,15 @@
   </dependencies>
    <build>
 		<finalName>service</finalName>
+		 <resources>
+        <resource>
+            <directory>src/main/webapp</directory>
+            <includes>
+                <include>**/*.jsp</include>
+                <include>**/*.xml</include>
+            </includes>
+        </resource>
+    </resources>
 		<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
