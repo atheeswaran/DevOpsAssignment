@@ -29,12 +29,13 @@
             <artifactId>maven-war-plugin</artifactId>
             <version>3.3.2</version> <!-- Use the latest version -->
 	        <configuration>
-                <webResources>
+                <!-- webResources>
                     <resource>
-                        <!-- this is relative to the pom.xml directory -->
                         <directory>service\src\main\webapp</directory>
                     </resource>
-                </webResources>
+                </webResources -->
+                <source>1.8</source>
+				<target>1.8</target>
             </configuration>
 		  </plugin>
 		</plugins>
