@@ -31,7 +31,7 @@
 	        <configuration>
                 <webResources>
                     <resource>
-                        <directory>service\src\main\webapp</directory>
+                        <directory>service/src/main/webapp</directory>
                          <includes>
                             <include>index.jsp</include>
                             <include>WEB-INF/web.xml</include>
