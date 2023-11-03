@@ -14,7 +14,7 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
 **Assignment Links:**
 
 1. **Jenkins AWS EC2 instance** => http://ec2-52-90-239-234.compute-1.amazonaws.com:8080/
-2. **Tomcat deployment EC2 instance** => http://ec2-52-91-54-187.compute-1.amazonaws.com:8080/service/
+2. **Tomcat deployment EC2 instance** => http://ec2-54-90-103-163.compute-1.amazonaws.com:8080/service/
 3. **GitHub URL with Maven based Java web project** => https://github.com/atheeswaran/DevOpsAssignment/
 
 **Step 1: EC2 Instance Setup**
@@ -81,7 +81,24 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
 1. Launch new EC2 instance and connect to linux terminal
    => switch to root user by using sudo -i command
    ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/8d02ad0e-e5e3-4879-b8e0-7e9c3446bccd)
-2. 
+2. install Tomcat
+   => by using yum -y install tomcat9
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/cc156d4a-e94d-40c9-ba0f-18a0023939b7)
+3. start Tomcat service
+   => by using service tomcat9 start
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/3cf8617a-aa30-48a6-91aa-677671957237)
+4. Open EC2 Tomcat URL
+   => http://ec2-54-90-103-163.compute-1.amazonaws.com:8080/
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/4d3490b4-4f6d-4844-8c29-b8d48a35ab75)
+5. install webapps and Update config files in order to use "Manager App" to check deployments later
+   => yum install tomcat9-webapps tomcat9-admin-webapps 
+![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/962a0759-9594-4ad0-b781-79e74f787efb)
+
+   
+
+   
+
+
 
 
 
