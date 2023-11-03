@@ -133,8 +133,11 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
    ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/9dc7096d-a630-4017-bb50-17fafbec3d39)
 
 
-**After successful deployment change the access port for Jenkins from 8080 (default) to 9090: **
-1. 
+**After successful deployment change the access port for Jenkins from 8080 (default) to 9090:**
+1. Edit "/usr/lib/systemd/system/jenkins.service"
+2. update Jenkins_PORT = 9090 instead of "8080"
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/0ba8b8f0-dca1-4337-877a-7e9f4d63472e)
+
 
 
 **Need and Benefits of Jenkins:**
