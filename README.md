@@ -6,12 +6,12 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
 
 **Prerequisites:**
 1. **AWS Account**: Access to AWS account and EC2 instances (Jenkins and Tomcat installations) running.
-2.**GITHub Account**: Access to GitHub account to push code and poll from Jenkins as part of Continuous Build/Integration
+2. **GITHub Account**: Access to GitHub account to push code and poll from Jenkins as part of Continuous Build/Integration
 
 **Assignment Links:**
-1. **Jenkins AWS EC2 instance** => http://ec2-174-129-106-139.compute-1.amazonaws.com:8080/
-2.**Tomcat deployment EC2 instance** => http://ec2-52-91-54-187.compute-1.amazonaws.com:8080/service/
-3.**GitHub URL with Maven based Java web project** => https://github.com/atheeswaran/DevOpsAssignment/
+1. **Jenkins AWS EC2 instance** => http://ec2-52-90-239-234.compute-1.amazonaws.com:8080/
+2. **Tomcat deployment EC2 instance** => http://ec2-52-91-54-187.compute-1.amazonaws.com:8080/service/
+3. **GitHub URL with Maven based Java web project** => https://github.com/atheeswaran/DevOpsAssignment/
 
 **Step 1: EC2 Instance Setup**
 1. Login to AWS and launch instance for Jenkins deployment
