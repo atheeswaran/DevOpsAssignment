@@ -60,6 +60,9 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
       ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/893ce299-022b-4b6f-a35a-661a47421238)
    3) Maven - MAVEN_HOME
       ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/06f453f0-a4d7-4804-bcf7-538c8dcb3c47)
+6. install "Deploy to container plugin"
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/302d3f1a-0979-455c-a404-69c54cdec83e)
+
 
 **Step4: Jenkins - New Job:**
 
@@ -75,6 +78,13 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
 4. **Build Steps - Maven:**
    => Maven and "Clean package" as Goals. see below
    ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/9ae62780-f265-4615-b7fb-8829141f5cee)
+5. **Post-Build Actions:**
+   => add postbuild action with "deploy war/ear to a container" option
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/e236735c-78ce-4cac-bda2-643aecb9bf2f)   
+   => war and context path
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/359a59a0-e3eb-440a-8151-6b1b17f37913)
+   => Provide tomcat URL with credentials (deployer user) (Step 5 point 6 is pre-req => check below)
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/b389e22e-871b-497a-afbb-b0d592aa3389)
 
 **Step 5: Tomcat Setup**
 
@@ -90,9 +100,77 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
 4. Open EC2 Tomcat URL
    => http://ec2-54-90-103-163.compute-1.amazonaws.com:8080/
    ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/4d3490b4-4f6d-4844-8c29-b8d48a35ab75)
-5. install webapps and Update config files in order to use "Manager App" to check deployments later
-   => yum install tomcat9-webapps tomcat9-admin-webapps 
-![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/962a0759-9594-4ad0-b781-79e74f787efb)
+5. install tomcat9 webapps  
+   => yum install tomcat9-webapps tomcat9-admin-webapps
+6. Edit tomcat-users.xml to add new user "**deployer**" to deploy "war/jar" with right access later
+   => edit /usr/share/tomcat9/conf/tomcat-users.xml
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/293376dc-e2be-4340-b2c5-1a92731037ea)
+7. update tomcat-users.xml with admin user inorder to use "Manager App" in tomcat webpage
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/9a10c015-c783-48f5-ba13-9c17cc333b7d)
+
+**Step 6: Code (Maven based javawebapp) push to GITHub:**
+1. **Create Maven Project with below Archetype** => archetype-webapp
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/29fade3e-cbb2-413e-a35a-60356d601651)
+2. **Edit pom.xml** to indicate Maven plugin, target directory paths
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/1afdcc67-1f1a-41bc-8a2a-07bbfaecab85)
+3.** Edit index.jsp** like below
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/8783082b-959a-4fcb-b8c2-9cadafcde3e2)
+4. **Edit webapp** displayname in Web.xml like below
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/85074fb4-caa4-4c0f-8555-a0d695b97ec8)
+5. **Commit and push to GITHub repo**
+   => https://github.com/atheeswaran/DevOpsAssignment
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/36486e75-8b4f-419d-a30b-8618859af02e)
+
+**Step 7: Continous Integration /Deployment**
+1. Make changes to index.jsp in maven project
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/c8f596f4-fab0-431a-9ec1-af5f1f7a9854)
+2. push the changes to GITHub
+3. check Jenkins Dashboard > javawebautodeploy job for automatic build
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/23657c8e-2073-4dc0-8629-3985f5e5bf50)
+4. Open tomcat (http://ec2-54-90-103-163.compute-1.amazonaws.com:8080/) > click "manager App"
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/ad9cbd50-7b7a-44a8-8483-9e361999d866)
+5. Click "service" application and see the latest changes in "index.jsp"
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/9dc7096d-a630-4017-bb50-17fafbec3d39)
+
+
+**After successful deployment change the access port for Jenkins from 8080 (default) to 9090: **
+1. 
+
+
+**Need and Benefits of Jenkins:**
+
+1.**Need of Jenkins:**
+
+   a) **Automation**: Jenkins automates building and deployment processes,avoiding the need for manual intervention and minimizing errors.
+   b) **Continuous Integration/Delivery**: It integrates with various version control systems like Git, enabling continuous integration and continuous delivery (CI/CD) pipelines.
+   C) **wide range of Plugins**: with help of plugins, Jenkins allows seamless integration with other tools used in the development lifecycle.
+   d) **Monitoring and Reporting**: Jenkins provides detailed logs and reports, allowing developers to monitor the progress of builds and deployments.
+   e) **Need of Collaboration**: Jenkins facilitates collaboration among development and operations teams to improve workflows.
+
+2. **Benefits of Jenkins:**   
+   a) **Faster Development**: By automating repetitive tasks, Jenkins speeds up the development process, enabling faster deployment.
+   b) **Reliability**: Automated builds and tests ensure consistency and reliability thereby reducing the chances of errors and bugs in product.
+   c) **Cost-Efficiency:** Automation reduces the need for manual labor, saving time and resources, ultimately leading to cost savings.
+   d) **Scalability**: Jenkins can handle multiple projects simultaneously, making it scalable for both small and large development teams.
+   e) **Flexibility**: Jenkins supports a wide range of plugins/integrations, allowing developers to use their preferred tools/technologies seamlessly.
+   f) **Enhanced Collaboration**: Jenkins promotes collaboration between development, testing, and operations teams, fostering a culture of shared responsibility and teamwork.
+
+
+
+   
+   
+
+
+
+
+   
+
+
+
+   
+
+
+
 
    
 
