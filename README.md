@@ -137,8 +137,10 @@ Perform a Jenkins LTS Deployment and install the plugin of Git and Maven. After 
 1. Edit "/usr/lib/systemd/system/jenkins.service"
 2. update Jenkins_PORT = 9090 instead of "8080"
    ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/0ba8b8f0-dca1-4337-877a-7e9f4d63472e)
-
-
+3. restart Jenkins service
+   => using service jenkins start
+   ![image](https://github.com/atheeswaran/DevOpsAssignment/assets/19812046/2668045b-146f-4244-8dca-f82ac8e36668)
+4. Run Jenkins on 9090 and check if its successful
 
 **Need and Benefits of Jenkins:**
 
